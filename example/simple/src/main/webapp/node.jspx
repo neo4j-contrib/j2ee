@@ -1,0 +1,59 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+        >
+    <jsp:directive.page contentType="text/html; ISO-8859-1"/>
+    <!--@elvariable id="node" type="org.neo4j.graphdb.Node"-->
+
+    <html>
+    <body>
+
+    <h1>
+        Node: ${node}</h1>
+
+    <h2>Releations:</h2>
+    <ul>
+        <c:forEach var="item" items="${node.relationships}">
+            <!--@elvariable id="item" type="org.neo4j.graphdb.Relationship"-->
+
+
+            <li>
+                <a href="${item.startNode.id}">${item.startNode}</a>
+
+                <form method="post" style="display: inline;">
+                    <input type="hidden" name="id" value="${item.id}"/>
+                    <input type="submit" name="remove-node" value="x"/>
+                </form>
+
+                -> ${item.type}[${item.id}]
+                <form method="post" style="display: inline;">
+                    <input type="hidden" name="id" value="${item.id}"/>
+                    <input type="submit" name="remove-relation" value="x"/>
+                </form>
+                ->
+
+                <a href="${item.endNode.id}">${item.endNode}</a>
+
+                <form method="post" style="display: inline;">
+                    <input type="hidden" name="id" value="${item.endNode.id}"/>
+                    <input type="submit" name="remove-node" value="x"/>
+                </form>
+            </li>
+        </c:forEach>
+    </ul>
+
+    <form method="post">
+        <label>
+            From: <input name="from" value="${node.id}"/>
+        </label>
+        <label>
+            Relation: <input name="relation" value="relates_to"/>
+        </label>
+        <label>
+            To: <input name="to" value="(new)"/>
+        </label>
+        <input type="submit" name="add-relation" value="add"/>
+    </form>
+    </body>
+
+    </html>
+</jsp:root>

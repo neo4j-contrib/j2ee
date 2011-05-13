@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 2002-2011 "Neo Technology,"
+    Network Engine for Objects in Lund AB [http://neotechnology.com]
+
+    This file is part of Neo4j.
+
+    Neo4j is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+    <distributable/>
+
+    <!-- default:
+    <context-param>
+        <param-name>neo4j-storage-dir</param-name>
+        <param-value>${context}WEB-INF/db/neo4j</param-value>
+    </context-param>
+    -->
+
+    <context-param>
+        <param-name>neo4j:allow_store_upgrade</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.neo4j.servlet.Neo4JContextListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>NodeServlet</servlet-name>
+        <servlet-class>org.neo4j.servlet.examples.NodeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>NodeServlet</servlet-name>
+        <url-pattern>/node/*</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jspx</welcome-file>
+    </welcome-file-list>
+
+</web-app>
