@@ -1,0 +1,23 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <ui:style field="css">
+        .link {
+            color: blue;
+            cursor: pointer;
+        }
+    </ui:style>
+    <g:HTMLPanel>
+        <table width="100%">
+            <tr>
+                <td>
+                    <g:Label ui:field="relationship"/>
+                    <g:Button ui:field="removeRelationship" text="x"/>
+                </td>
+                <td>
+                    <g:Label styleName="{css.link}" ui:field="endNode"/>
+                    <g:Button ui:field="removeEndNode" text="x"/>
+                </td>
+            </tr>
+        </table>
+    </g:HTMLPanel>
+</ui:UiBinder>

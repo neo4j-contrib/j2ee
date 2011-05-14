@@ -1,0 +1,10 @@
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0//EN"
+        "http://google-web-toolkit.googlecode.com/svn/releases/2.0/distro-source/core/src/gwt-module.dtd">
+<module rename-to="Node">
+
+    <inherits name='com.google.gwt.user.User'/>
+
+    <entry-point class='org.neo4j.servlet.examples.client.App'/>
+    <servlet path="/NodeService" class="org.neo4j.servlet.examples.server.NodeServiceImpl"/>
+
+</module>

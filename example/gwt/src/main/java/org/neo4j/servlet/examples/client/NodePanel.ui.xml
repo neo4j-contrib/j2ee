@@ -1,0 +1,54 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:HTMLPanel>
+
+        <table width="100%">
+
+            <tr>
+                <th>incoming relations</th>
+                <td></td>
+                <th>selected node</th>
+                <td></td>
+                <th>outgoing relations</th>
+            </tr>
+            <tr>
+                <td style="border:1px solid darkgreen" valign="top">
+                    <g:FlowPanel ui:field="incoming"/>
+                </td>
+                <td>
+                    <center> &gt;</center>
+                </td>
+                <td style="border:1px solid darkgreen">
+                    <center>
+                        <g:Label ui:field="title"/>
+                    </center>
+                </td>
+                <td>
+                    <center> &gt;</center>
+                </td>
+                <td style="border:1px solid darkgreen" valign="top">
+                    <g:FlowPanel ui:field="outgoing"/>
+                </td>
+            </tr>
+        </table>
+
+
+        <fieldset>
+            <legend>Create new node/relationship</legend>
+            <label>
+                From
+                <g:TextBox ui:field="from"/>
+            </label>
+            <label>
+                Relation
+                <g:TextBox ui:field="relation"/>
+            </label>
+            <label>
+                To
+                <g:TextBox ui:field="to"/>
+            </label>
+            <g:Button ui:field="add" text="add"/>
+        </fieldset>
+    </g:HTMLPanel>
+</ui:UiBinder>
